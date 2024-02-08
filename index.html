@@ -3,34 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <title>Repartometro Grado 1</title>
+    <link rel="icon" type="image/x-icon" href="scout.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+	const alb = 25, pol= 100, pin=80, squ=45;
+	const prize = [
+		{score:150, color:"#e51f1f", loot:"premio 1"},
+		{score:120, color:"#f2a134", loot:"premio 1"},
+		{score:90, color:"#f7e379", loot:"premio 1"},
+		{score:60, color:"#bbdb44", loot:"premio 1"},
+		{score:30, color:"#44ce1b", loot:"premio 1"},
+		{score:0, color:"#00000F"}]
+	
+	function set(){
+		document.getElementById("AL").setAttribute('style', '--score: "'+ alb +'"; --dim: '+alb+'0px;--col:'+ getCol(alb)+';');
+		document.getElementById("PI").setAttribute('style', '--score: "'+ pol +'"; --dim: '+pol+'0px;--col:'+ getCol(pol)+';');
+		document.getElementById("PO").setAttribute('style', '--score: "'+ pin +'"; --dim: '+pin+'0px;--col:'+ getCol(pin)+';');
+		document.getElementById("SQ").setAttribute('style', '--score: "'+ squ +'"; --dim: '+squ+'0px;--col:'+ getCol(squ)+';');
+		
+		var cols="";
+		for(let i=0;i<prize.length-1;i++){
+			cols+='<div class="vertical" style="border-left: 10px solid '+prize[i].color+';left:'+prize[i].score+'0px"><b>'+prize[i].loot+'</b></div>'
+		}
+		document.getElementById("cols").innerHTML=cols;
+	}
+	
+	function getCol(score){
+		for(let i=0;i<prize.length;i++){
+			if(score>=prize[i].score) return prize[i].color;
+		}
+	}
+    </script>
     <style>
-      .column {
+	html {
+	  font-family: cursive;
+	  background-color:#38ACEC
+	 }
+      	.column {
           float: left;
           width: 25%;
         }
-        meter
-        {
-            width: 500px;
-            height: 10px;
-            transform: rotate(90deg);
+        .progress{
+	  height:30px;
+	  width:1700px;
+	  background-color:grey;
+	  position:relative;
+	  border-radius: 20px;
+	  border-style: solid;
+	}
+
+	.progress::before{
+	  position:absolute;
+	  height:30px;
+	  background:var(--col);
+	  content:var(--score);
+	  top:0;
+	  left:0;
+	  width:var(--dim);
+	  display:flex;
+	  color:white;
+	  align-items:center;
+	  justify-content:flex-end;
+	  padding-right:10px;
+	  border-radius: 20px;
+	}
+	.vertical {
+            padding:10px;
+            height: 500px;
+            border-radius: 10px;
+            border-left-style: solid;
+            position: absolute;
         }
     </style>
 </head>
-<body>
-  <h1>Repartometro</h1>
-  <div class="row">
-    <div class="column"><h3>Albatros</h3>
-         <meter max="120" value="55.93" title="Test"></meter>
+<body onload="set();">
+ <div style="padding-bottom: 10px;">
+ 	<img src="scout.png" style="width:400px;">
+ 	<h1 style="font-size: 2em;">REPARTOMETRO</h1>
+ </div>
+ <div id="cols"></div>
+<div style="padding-top: 50px;">
+    <div>
+    	<h3>Albatros</h3>
+         <div id="AL" class="progress" style= ></div>
     </div>
-    <div class="column"><h3>Pinguini</h3>
-         <meter max="120" value="55.93" title="Test"></meter>
+    <div>
+   	 <h3>Pinguini</h3>
+         <div id="PI" class="progress" style= "--score: '40'; --dim: 400px;"></div>
     </div>
-    <div class="column"><h3>Polipi</h3>
-         <meter max="120" value="55.93" title="Test"></meter>
+    <div>
+    	<h3>Polipi</h3>
+         <div id="PO" class="progress" style= "--score: '20'; --dim: 200px;"></div>
     </div>
-    <div class="column"><h3>Squali</h3>
-         <meter max="120" value="55.93" title="Test"></meter>
+    <div>
+    	<h3>Squali</h3>
+         <div id="SQ"class="progress" style= "--score: '20'; --dim: 200px;"></div>
     </div>
 </div> 
 </body>

@@ -16,10 +16,10 @@
 		{score:0, color:"#00000F"}]
 	
 	function set(){
-		document.getElementById("AL").setAttribute('style', '--score: "'+ alb +'"; --dim: '+alb+'0px;--col:'+ getCol(alb)+';');
-		document.getElementById("PI").setAttribute('style', '--score: "'+ pol +'"; --dim: '+pol+'0px;--col:'+ getCol(pol)+';');
-		document.getElementById("PO").setAttribute('style', '--score: "'+ pin +'"; --dim: '+pin+'0px;--col:'+ getCol(pin)+';');
-		document.getElementById("SQ").setAttribute('style', '--score: "'+ squ +'"; --dim: '+squ+'0px;--col:'+ getCol(squ)+';');
+		document.getElementById("AL").setAttribute('style', '--score: "'+ alb +'"; --dim: '+(alb+2)+'0px;--col:'+ getCol(alb)+';');
+		document.getElementById("PI").setAttribute('style', '--score: "'+ pol +'"; --dim: '+(pol+2)+'0px;--col:'+ getCol(pol)+';');
+		document.getElementById("PO").setAttribute('style', '--score: "'+ pin +'"; --dim: '+(pin+2)+'0px;--col:'+ getCol(pin)+';');
+		document.getElementById("SQ").setAttribute('style', '--score: "'+ squ +'"; --dim: '+(squ+2)+'0px;--col:'+ getCol(squ)+';');
 		
 		var cols="";
 		for(let i=0;i<prize.length-1;i++){

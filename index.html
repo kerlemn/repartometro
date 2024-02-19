@@ -7,25 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
 	const alb = 0, pol= 0, pin=0, squ=0;
+    const m=18
 	const prize = [
-		{score:150, color:"#e51f1f", loot:"premio 5"},
-		{score:120, color:"#f2a134", loot:"premio 4"},
-		{score:90, color:"#f7e379", loot:"premio 3"},
-		{score:60, color:"#bbdb44", loot:"premio 2"},
-		{score:30, color:"#44ce1b", loot:"premio 1"},
+        {score:80, color:"#ff6961", loot:"Gardaland (post campo)"},
+        {score:50, color:"#ffb480", loot:"Richieste e spese extra"},
+        {score:40, color:"#f8f38d", loot:"Legna fatta dai capi"},
+		{score:30, color:"#42d6a4", loot:"Cena fatta dai capi"},
+		{score:20, color:"#08cad1", loot:"Luce<br>per<br>angolo"},
+		{score:15, color:"#59adf6", loot:"Accendini"},
+		{score:10, color:"#9d94ff", loot:"Olio<br>extra"},
+		{score:5,  color:"#c780e8", loot:"Sega<br>o<br>Accetta"},
 		{score:0, color:"#00000F"}]
+    
+    const activity = [
+		//{team: "Paguri",score:3, reason:"Inventato l'urlo piú bello"},
+	]
 	
 	function set(){
-		document.getElementById("AL").setAttribute('style', '--score: "'+ alb +'"; --dim: '+(alb+2)+'0px;--col:'+ getCol(alb)+';');
-		document.getElementById("PI").setAttribute('style', '--score: "'+ pol +'"; --dim: '+(pol+2)+'0px;--col:'+ getCol(pol)+';');
-		document.getElementById("PO").setAttribute('style', '--score: "'+ pin +'"; --dim: '+(pin+2)+'0px;--col:'+ getCol(pin)+';');
-		document.getElementById("SQ").setAttribute('style', '--score: "'+ squ +'"; --dim: '+(squ+2)+'0px;--col:'+ getCol(squ)+';');
+		document.getElementById("AL").setAttribute('style', '--score: "'+ alb +'"; --dim: '+(alb+1)*m+'px;--col:'+ getCol(alb)+';');
+		document.getElementById("PI").setAttribute('style', '--score: "'+ pol +'"; --dim: '+(pol+1)*m+'px;--col:'+ getCol(pol)+';');
+		document.getElementById("PO").setAttribute('style', '--score: "'+ pin +'"; --dim: '+(pin+1)*m+'px;--col:'+ getCol(pin)+';');
+		document.getElementById("SQ").setAttribute('style', '--score: "'+ squ +'"; --dim: '+(squ+1)*m+'px;--col:'+ getCol(squ)+';');
 		
 		var cols="";
 		for(let i=0;i<prize.length-1;i++){
-			cols+='<div class="vertical" style="border-left: 10px solid '+prize[i].color+';left:'+prize[i].score+'0px"><b>'+prize[i].loot+'</b></div>'
+			cols+='<div class="vertical" style="border-left: 10px solid '+prize[i].color+';left:'+prize[i].score*m+'px"><b>'+prize[i].loot+'</b></div>'
 		}
 		document.getElementById("cols").innerHTML=cols;
+
+        var tabs="";
+		for(let i=0;i<activity.length;i++){
+			tabs+='<tr><td>'+activity[i].team+'</td><td>'+activity[i].score+'</td><td>'+activity[i].reason+'</td></tr>';
+		}
+		document.getElementById("table").innerHTML=tabs;
 	}
 	
 	function getCol(score){
@@ -67,19 +81,60 @@
 	  border-radius: 20px;
 	}
 	.vertical {
-            padding:10px;
+            padding:5px;
             height: 500px;
-            border-radius: 10px;
+            border-radius: 8px;
             position: absolute;
         }
+    th, td {
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	  font-size: 14px;
+	}
+    table {
+        display: block;
+    }
+
+    table {
+        width: 400px;
+        height: 100px;
+        overflow-y: auto;
+        overflow-x: auto;
+    }
     </style>
 </head>
 <body onload="set();">
  <div style="padding-bottom: 10px;">
  	<img src="scout.png" style="width:400px;">
- 	<h1 style="font-size: 2em;">Repartometro</h1>
+ 	<h1 style="font-size: 3em;">Repartometro</h1>
+    <h3>Come guadagnare punti?</h3>
+    <ul>
+        <li><h4>1pt X Punto di specialitá</h4></li>
+        <li><h4>10pt X Zona della stanza sistemata</h4></li>
+        <li><h4>20pt X Impresa completata</h4></li>
+        <li><h4>8pt X Posizionamento sul podio al San Giorgio</h4></li>
+        <li><h4>Punti extra decisi dai capi</h4></li>
+    </ul>
+    <h3>Azioni</h3>
+    <table>
+        <colgroup>
+        <col>
+        <col>
+        <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Squadriglia</th>
+            <th>Punteggio</th>
+            <th>Descrizione</th>
+          </tr>
+        </thead>
+        <tbody id="table">
+        </tbody>
+        </table>
+    <h3>Punteggio</h3>
  </div>
- <div id="cols"></div>
+<div id="cols"></div>
 <div style="padding-top: 50px;">
     <div>
     	<h3>Albatros</h3>

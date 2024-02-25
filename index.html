@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="scout.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-	const alb = 0, pol= 4, pin=1, squ=0;
+	const alb = 0, pol=4, pin=1, squ=0;
     const m=18
 	const prize = [
         {score:80, color:"#ff6961", loot:"Gardaland (post campo)"},
@@ -20,15 +20,15 @@
 		{score:0, color:"#00000F"}]
     
     const activity = [
-		{team: "Pinguini",score:1, reason:"Punto specialità Crystal: Fotografo 1 punto"},
-	    {team: "Polipi",score:2, reason:"Punto specialità Alessia P.: Amico della natura punti 1 e 2"},
+		{team: "Pinguini",score:1, reason:"Punto specialità Crystal: Fotografo punto 1"},
+	    {team: "Polipi",score:2, reason:"Punto specialità Alessia P.: Amico degli animali punti 1 e 2"},
 	    {team: "Polipi",score:2, reason:"Punto specialità Alessia C.: Attore punti 1 e 2"}
 	]
 	
 	function set(){
 		document.getElementById("AL").setAttribute('style', '--score: "'+ alb +'"; --dim: '+(alb+1)*m+'px;--col:'+ getCol(alb)+';');
-		document.getElementById("PI").setAttribute('style', '--score: "'+ pol +'"; --dim: '+(pol+1)*m+'px;--col:'+ getCol(pol)+';');
-		document.getElementById("PO").setAttribute('style', '--score: "'+ pin +'"; --dim: '+(pin+1)*m+'px;--col:'+ getCol(pin)+';');
+		document.getElementById("PI").setAttribute('style', '--score: "'+ pin +'"; --dim: '+(pin+1)*m+'px;--col:'+ getCol(pin)+';');
+		document.getElementById("PO").setAttribute('style', '--score: "'+ pol +'"; --dim: '+(pol+1)*m+'px;--col:'+ getCol(pol)+';');
 		document.getElementById("SQ").setAttribute('style', '--score: "'+ squ +'"; --dim: '+(squ+1)*m+'px;--col:'+ getCol(squ)+';');
 		
 		var cols="";

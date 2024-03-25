@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="scout.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-	const alb = 0, pol=6, pin=2, squ=0;
+	const alb = 2, pol=13, pin=7, squ=1;
     const m=18
 	const prize = [
         {score:80, color:"#ff6961", loot:"Gardaland (post campo)"},
@@ -20,11 +20,17 @@
 		{score:0, color:"#00000F"}]
     
     const activity = [
-		{team: "Pinguini",score:1, reason:"Punto specialità Crystal: Fotografo punto 1"},
+	    {team: "Pinguini",score:1, reason:"Punto specialità Crystal: Fotografo punto 1"},
 	    {team: "Polipi",score:2, reason:"Punto specialità Alessia P.: Amico degli animali punti 1 e 2"},
 	    {team: "Polipi",score:2, reason:"Punto specialità Alessia C.: Attore punti 1 e 2"},
 	    {team: "Polipi",score:2, reason:"Punto specialità Alessia C.: Attore punti 3 e 4"},
-	    {team: "Pinguini",score:1, reason:"Punto specialità Anna: Musicista punto 1"}
+	    {team: "Pinguini",score:1, reason:"Punto specialità Anna: Musicista punto 1"},
+	    {team: "Polipi",score:4, reason:"Quadri di squadriglia"},
+	    {team: "Pinguini",score:3, reason:"Quadri di squadriglia"},
+	    {team: "Albatros",score:2, reason:"Quadri di squadriglia"},
+	    {team: "Squali",score:1, reason:"Quadri di squadriglia"},
+	    {team: "Pinguini",score:1, reason:"Punto specialità Caterina: Cuoco punto 1"},
+	    {team: "Polipi",score:3, reason:"Punto specialità Aurora: Cuoco punti 1, 2 e 3"}
 	]
 	
 	function set(){

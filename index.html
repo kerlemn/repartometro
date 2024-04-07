@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
 	//const alb = 6, pol=20, pin=17, squ=4;
-	const alb = sumScore("Albatros"), pol= sumScore("Polipi"), pin=sumScore("Pinguini"), squ=sumScore("Squali");
     	const m=18
 	const prize = [
         {score:80, color:"#ff6961", loot:"Gardaland (post campo)"},
@@ -53,6 +52,8 @@
 	        return accumulator;
 	    }, 0);
 	}
+
+	const alb = sumScore("Albatros"), pol= sumScore("Polipi"), pin=sumScore("Pinguini"), squ=sumScore("Squali")
 	
 	function set(){
 		document.getElementById("AL").setAttribute('style', '--score: "'+ alb +'"; --dim: '+(alb+1)*m+'px;--col:'+ getCol(alb)+';');

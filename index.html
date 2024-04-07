@@ -6,8 +6,9 @@
     <link rel="icon" type="image/x-icon" href="scout.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-	const alb = 2, pol=13, pin=7, squ=1;
-    const m=18
+	//const alb = 6, pol=20, pin=17, squ=4;
+	const alb = sumScore("Albatros"), pol= sumScore("Polipi"), pin=sumScore("Pinguini"), squ=sumScore("Squali");
+    	const m=18
 	const prize = [
         {score:80, color:"#ff6961", loot:"Gardaland (post campo)"},
         {score:50, color:"#ffb480", loot:"Richieste e spese extra"},
@@ -30,8 +31,28 @@
 	    {team: "Albatros",score:2, reason:"Quadri di squadriglia"},
 	    {team: "Squali",score:1, reason:"Quadri di squadriglia"},
 	    {team: "Pinguini",score:1, reason:"Punto specialità Caterina: Cuoco punto 1"},
-	    {team: "Polipi",score:3, reason:"Punto specialità Aurora: Cuoco punti 1, 2 e 3"}
+	    {team: "Polipi",score:3, reason:"Punto specialità Aurora: Cuoco punti 1, 2 e 3"},
+	    {team: "Pinguini",score:1, reason:"Punto specialità Caterina: Cuoco punto 2"},
+	    {team: "Polipi",score:3, reason:"Punto specialità Aurora: Cuoco punto 4"},
+	    {team: "Pinguini",score:1, reason:"Punto specialità Crystal: Fotografo punto 2"},
+	    {team: "Pinguini",score:4, reason:"Montaggio tende"},
+	    {team: "Polipi",score:3, reason:"Montaggio tende"},
+	    {team: "Albatros",score:2, reason:"Montaggio tende"},
+	    {team: "Squali",score:1, reason:"Montaggio tende"},
+	    {team: "Pinguini",score:4, reason:"Gioco primo soccorso"},
+	    {team: "Polipi",score:3, reason:"Gioco primo soccorso"},
+	    {team: "Albatros",score:2, reason:"Gioco primo soccorso"},
+	    {team: "Squali",score:2, reason:"Gioco primo soccorso"}
 	]
+
+	function sumScore(S) {
+	    return activity.reduce((accumulator, currentObject) => {
+	        if (currentObject.team === S) {
+	            return accumulator + currentObject.score;
+	        }
+	        return accumulator;
+	    }, 0);
+	}
 	
 	function set(){
 		document.getElementById("AL").setAttribute('style', '--score: "'+ alb +'"; --dim: '+(alb+1)*m+'px;--col:'+ getCol(alb)+';');

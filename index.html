@@ -46,7 +46,13 @@
 	    {team: "Pinguini",score:8, reason:"Orienteering"},
 	    {team: "Polipi",score:8, reason:"Orienteering"},
 	    {team: "Albatros",score:4, reason:"Orienteering"},
-	    {team: "Squali",score:4, reason:"Orienteering"}
+	    {team: "Squali",score:4, reason:"Orienteering"},
+	    {team: "Pinguini",score:1, reason:"Punto specialità Anna: Musicista punto 3"},
+	    {team: "Polipi",score:1, reason:"Punto specialità Alessia P.: Amico degli animali punto 3"},
+	    {team: "Pinguini",score:9, reason:"Punto specialità Anna: Amico degli animali punti 1,2 e 3"},
+	    {team: "Pinguini",score:3, reason:"Punto specialità Crystal: Fotografo punto 3"},
+	    {team: "Squali",score:6, reason:"Punto specialità Alessandro: Artigiano punti 2 e 3"},
+	    {team: "Squali",score:6, reason:"Punto specialità Alessandro: Attore punti 1 e 2"}
 	]
 
 	function sumScore(S) {
@@ -74,7 +80,7 @@
 
         var tabs="";
 		for(let i=0;i<activity.length;i++){
-			tabs+='<tr><td>'+activity[i].team+'</td><td>'+activity[i].score+'</td><td>'+activity[i].reason+'</td></tr>';
+			tabs='<tr><td>'+activity[i].team+'</td><td>'+activity[i].score+'</td><td>'+activity[i].reason+'</td></tr>'+tabs;
 		}
 		document.getElementById("table").innerHTML=tabs;
 	}
